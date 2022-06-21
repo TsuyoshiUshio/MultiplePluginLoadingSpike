@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	  <EnableDynamicLoading>true</EnableDynamicLoading>
+	  <PackageId>SimpleArchitect.CosmosDBPlugin</PackageId>
+	  <Version>3.0.0</Version>
+	  <Company>SimpleArchitect</Company>
+	  <Authors>Tsuyoshi Ushio</Authors>
+	  <Product>CosmosDBPlugin</Product>
+	  <Description>Plugin of CosmosDB</Description>
+	  <AssemblyName>CosmosDBPlugin</AssemblyName>
+	  <RootNamespace>CosmosPlugin</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+	  <ProjectReference Include="..\PluginBase\PluginBase.csproj">
+		  <Private>false</Private>
+		  <ExcludeAssets>runtime</ExcludeAssets>
+	  </ProjectReference>
+  </ItemGroup>
+
+</Project>
