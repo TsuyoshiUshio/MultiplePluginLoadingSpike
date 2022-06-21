@@ -10,6 +10,8 @@ namespace PluginBase
     {
         string Name { get; }
         string Description { get; }
-        int Execute();
+        void Initialize(IDictionary<string, string> context);
+
+        void Execute();
     }
 }

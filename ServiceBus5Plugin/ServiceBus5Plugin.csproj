@@ -5,15 +5,19 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 	  <EnableDynamicLoading>true</EnableDynamicLoading>
-	  <PackageId>SimpleArchitect.CosmosDBPlugin</PackageId>
-	  <Version>3.0.0</Version>
+	  <PackageId>SimpleArchitect.ServiceBusPlugin</PackageId>
+	  <Version>5.0.0</Version>
 	  <Company>SimpleArchitect</Company>
 	  <Authors>Tsuyoshi Ushio</Authors>
-	  <Product>CosmosDBPlugin</Product>
-	  <Description>Plugin of CosmosDB</Description>
-	  <AssemblyName>CosmosDBPlugin</AssemblyName>
-	  <RootNamespace>CosmosPlugin</RootNamespace>
+	  <Product>ServiceBusPlugin</Product>
+	  <Description>Plugin of ServiceBus</Description>
+	  <AssemblyName>ServiceBusPlugin</AssemblyName>
+	  <RootNamespace>ServiceBusPlugin</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.ServiceBus" Version="5.5.1" />
+  </ItemGroup>
   <ItemGroup>
 	  <ProjectReference Include="..\PluginBase\PluginBase.csproj">
 		  <Private>false</Private>

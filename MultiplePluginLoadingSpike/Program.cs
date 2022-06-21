@@ -21,9 +21,8 @@ namespace MultiplePluginLoadingSpike
                 // Load commands from plugins.
                 string[] pluginPath = new string[]
                 {
-                    "HelloPlugin\\bin\\Debug\\net6.0\\HelloPlugin.dll",
-                    "ReferenceNetFrameworkPlugin\\bin\\Debug\\net6.0\\ReferenceNetFrameworkPlugin.dll",
-                    "BindingRedirectPlugin\\bin\\Debug\\net6.0\\BindingRedirectPlugin.dll"
+                    "ServiceBus4Plugin\\bin\\Debug\\net6.0\\ServiceBusPlugin.dll",
+                    "ServiceBus5Plugin\\bin\\Debug\\net6.0\\ServiceBusPlugin.dll",
                 };
                 IEnumerable<ICommand> commands = pluginPath.SelectMany(pluginPath =>
                 {
@@ -32,33 +31,20 @@ namespace MultiplePluginLoadingSpike
                     return CreateCommands(pluginAssembly);
                 }).ToList();
 
-                if (args.Length == 0)
-                {
-                    Console.WriteLine("Commands: ");
-                    // Output the loaded commands.
-                    foreach (ICommand command in commands)
-                    {
-                        Console.WriteLine($"{command.Name}\t - {command.Description}");
-                    }
-                }
-                else
-                {
-                    foreach (string commandName in args)
-                    {
-                        Console.WriteLine($"-- {commandName} --");
+                IDictionary<string, string> context = new Dictionary<string, string>();
+                context.Add("connectionString", Environment.GetEnvironmentVariable("ServiceBusConnectionString"));
+                context.Add("queueName", Environment.GetEnvironmentVariable("ServiceBusQueueName"));
 
-                        // Execute the command with the name passed as a argument.
-                        ICommand? command = commands?.FirstOrDefault(c => c.Name == commandName);
-                        if (command == null)
-                        {
-                            Console.WriteLine("No such command is known.");
-                            return;
-                        }
-                        command.Execute();
-
-                        Console.WriteLine();
-                    }
+                foreach(ICommand command in commands)
+                {
+                    command.Initialize(context);
                 }
+
+                foreach(ICommand command in commands)
+                {
+                    command.Execute();
+                }
+
             }
             catch (Exception ex)
             {

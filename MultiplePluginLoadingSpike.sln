@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiplePluginLoadingSpike", "MultiplePluginLoadingSpike\MultiplePluginLoadingSpike.csproj", "{589B3982-589B-4A9F-BE84-7F2AF9704C1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiplePluginLoadingSpike", "MultiplePluginLoadingSpike\MultiplePluginLoadingSpike.csproj", "{589B3982-589B-4A9F-BE84-7F2AF9704C1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginBase", "PluginBase\PluginBase.csproj", "{424EDF64-4DB5-43A0-B814-1FB7D7A296FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PluginBase", "PluginBase\PluginBase.csproj", "{424EDF64-4DB5-43A0-B814-1FB7D7A296FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos3Plugin", "Cosmos3Plugin\Cosmos3Plugin.csproj", "{2AD02B1E-C833-4A64-B415-B71B5835D9BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceBus5Plugin", "ServiceBus5Plugin\ServiceBus5Plugin.csproj", "{2AD02B1E-C833-4A64-B415-B71B5835D9BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos2Plugin", "Cosmos2Plugin\Cosmos2Plugin.csproj", "{B535E772-7F06-4B6B-8946-AB98BE7A24C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceBus4Plugin", "ServiceBus4Plugin\ServiceBus4Plugin.csproj", "{B535E772-7F06-4B6B-8946-AB98BE7A24C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
