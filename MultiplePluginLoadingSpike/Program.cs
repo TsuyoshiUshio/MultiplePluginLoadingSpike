@@ -2,6 +2,7 @@
 using System.ComponentModel.Design;
 using System.Reflection;
 using System.Runtime.Loader;
+using Microsoft.Extensions.Logging;
 using PluginBase;
 
 namespace MultiplePluginLoadingSpike
@@ -35,16 +36,28 @@ namespace MultiplePluginLoadingSpike
                 context.Add("connectionString", Environment.GetEnvironmentVariable("ServiceBusConnectionString"));
                 context.Add("queueName", Environment.GetEnvironmentVariable("ServiceBusQueueName"));
 
-                foreach(ICommand command in commands)
+                var loggerFactory = new LoggerFactory()
+                    .AddConsole();
+
+                foreach (ICommand command in commands)
                 {
-                    command.Initialize(context);
+                    command.Initialize(context, loggerFactory);
                 }
 
-                foreach(ICommand command in commands)
+                foreach (ICommand command in commands)
                 {
                     command.Execute();
                 }
 
+                // The following reflection fails
+                // var instance = Activator.CreateInstance("ServiceBusPlugin", "ServiceBusPlugin.ServiceBusPlugin");
+                // Console.WriteLine($"V5 : {instance.GetType().FullName} {instance.GetType().Assembly.Location}");
+                var defaultAssembly = typeof(Program).Assembly;
+                Console.WriteLine("*************************** List types");
+                foreach (var t in defaultAssembly.GetTypes())
+                {
+                    Console.WriteLine(t.FullName);
+                }
             }
             catch (Exception ex)
             {
