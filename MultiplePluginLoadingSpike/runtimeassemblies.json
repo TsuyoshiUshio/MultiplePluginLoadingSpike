@@ -1,0 +1,72 @@
+{
+  "runtimeAssemblies": [
+    {
+      "name": "Microsoft.DotNet.PlatformAbstractions",
+      "resolutionPolicy": "minorMatchOrLower"
+    },
+    {
+      "name": "Microsoft.Extensions.Configuration.Abstractions",
+      "resolutionPolicy": "minorMatchOrLower"
+    },
+    {
+      "name": "Microsoft.Extensions.Configuration.Binder",
+      "resolutionPolicy": "minorMatchOrLower"
+    },
+    {
+      "name": "Microsoft.Extensions.Configuration",
+      "resolutionPolicy": "minorMatchOrLower"
+    },
+    {
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "resolutionPolicy": "minorMatchOrLower"
+    },
+    {
+      "name": "Microsoft.Extensions.DependencyModel",
+      "resolutionPolicy": "minorMatchOrLower"
+    },
+    {
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "resolutionPolicy": "minorMatchOrLower"
+    },
+    {
+      "name": "Microsoft.Extensions.Logging.Configuration",
+      "resolutionPolicy": "minorMatchOrLower"
+    },
+    {
+      "name": "Microsoft.Extensions.Logging.Console",
+      "resolutionPolicy": "minorMatchOrLower"
+    },
+    {
+      "name": "Microsoft.Extensions.Logging",
+      "resolutionPolicy": "minorMatchOrLower"
+    },
+    {
+      "name": "Microsoft.Extensions.Options.ConfigurationExtensions",
+      "resolutionPolicy": "minorMatchOrLower"
+    },
+    {
+      "name": "Microsoft.Extensions.Options",
+      "resolutionPolicy": "minorMatchOrLower"
+    },
+    {
+      "name": "Microsoft.Extensions.Primitives",
+      "resolutionPolicy": "minorMatchOrLower"
+    },
+    {
+      "name": "MultiplePluginLoadingSpike",
+      "resolutionPolicy": "minorMatchOrLower"
+    },
+    {
+      "name": "Newtonsoft.Json",
+      "resolutionPolicy": "minorMatchOrLower"
+    },
+    {
+      "name": "PluginBase",
+      "resolutionPolicy": "minorMatchOrLower"
+    },
+    {
+      "name": "System.IO.Abstractions",
+      "resolutionPolicy": "minorMatchOrLower"
+    }
+  ]
+}

@@ -3,6 +3,7 @@ using System.ComponentModel.Design;
 using System.Reflection;
 using System.Runtime.Loader;
 using Microsoft.Extensions.Logging;
+using MultiplePluginLoadingSpike.PluginLoader;
 using PluginBase;
 
 namespace MultiplePluginLoadingSpike
@@ -77,12 +78,26 @@ namespace MultiplePluginLoadingSpike
             string pluginLocation = Path.GetFullPath(Path.Combine(root, relativePath.Replace('\\', Path.DirectorySeparatorChar)));
             Console.WriteLine($"Loading commands from: {pluginLocation}");
 
-            PluginLoadContext loadContext = new PluginLoadContext(pluginLocation);
+            //   PluginLoadContext loadContext = new PluginLoadContext(pluginLocation);
+            AssemblyLoadContext loadContext = CreateScaleControllerAssemblyLoadContext(pluginLocation);
             loadContext.Resolving += CustomEventHandler;
             AppDomain currentDomain = AppDomain.CurrentDomain;
             currentDomain.AssemblyResolve += CustomEventHandlerForAppDomain;
             AssemblyName assemblyName = new AssemblyName(Path.GetFileNameWithoutExtension(pluginLocation));
             return loadContext.LoadFromAssemblyName(assemblyName);
+        }
+
+        private static AssemblyLoadContext CreatePluginAssemblyLoadContext(string pluginLocation)
+        {
+            PluginLoadContext loadContext = new PluginLoadContext(pluginLocation);
+            loadContext.Resolving += CustomEventHandler;
+            return loadContext;
+        }
+
+        private static AssemblyLoadContext CreateScaleControllerAssemblyLoadContext(string pluginLocation)
+        {
+            var path = Path.GetDirectoryName(pluginLocation);
+            return new ScaleControllerAssemblyLoadContext(path);
         }
 
         private static Assembly CustomEventHandlerForAppDomain(object sender, ResolveEventArgs args)
